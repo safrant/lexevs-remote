@@ -32,7 +32,7 @@
 		<javac srcdir="${sdk_dir}/writable-api/src"
 		    destdir="build/classes"
 			includes="gov/nih/nci/system/applicationservice/*.java">
-					<classpath>
+			<classpath>
 				<path refid="sdk.path" />
 			</classpath>
 		</javac>
@@ -58,4 +58,7 @@
 	<target name="clean">
 		<delete dir="build"/>
 	</target>
+
+
+
 </project>
