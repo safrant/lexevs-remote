@@ -8,12 +8,14 @@
 */
 package org.LexGrid.LexBIG.distributed.test.dataAccess;
 
-import gov.nih.nci.system.client.ApplicationServiceProvider;
+//import gov.nih.nci.system.client.ApplicationServiceProvider;
+
 
 import org.LexGrid.LexBIG.DataModel.Collections.CodingSchemeRenderingList;
 import org.LexGrid.LexBIG.DataModel.InterfaceElements.CodingSchemeRendering;
 import org.LexGrid.LexBIG.Impl.dataAccess.SQLImplementedMethods;
 import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
+import org.LexGrid.LexBIG.caCore.applicationservice.client.ApplicationServiceProvider;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSDistributed;
 import org.LexGrid.LexBIG.testUtil.ServiceTestCase;
 import org.lexevs.system.ResourceManager;

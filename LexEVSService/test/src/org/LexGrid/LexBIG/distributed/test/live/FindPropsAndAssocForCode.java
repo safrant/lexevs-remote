@@ -24,15 +24,35 @@ package org.LexGrid.LexBIG.distributed.test.live;
 import java.io.*;
 import java.net.URI;
 import java.text.*;
-import java.util.*;
+
 import java.sql.*;
 
 import gov.nih.nci.system.client.ApplicationServiceProvider;
+import java.util.Enumeration;
 import org.LexGrid.LexBIG.DataModel.Collections.AbsoluteCodingSchemeVersionReferenceList;
+import org.LexGrid.LexBIG.DataModel.Collections.AssociationList;
+import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
+import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
+import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
+import org.LexGrid.LexBIG.DataModel.Core.AssociatedConcept;
+import org.LexGrid.LexBIG.DataModel.Core.Association;
+import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
+import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
+import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
+import org.LexGrid.LexBIG.Exceptions.LBException;
+import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.Utility.Constructors;
+import org.LexGrid.LexBIG.Utility.ConvenienceMethods;
 import org.LexGrid.LexBIG.Utility.Iterators.ResolvedConceptReferencesIterator;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSDistributed;
 import org.LexGrid.LexBIG.distributed.test.live.testutil.RemoteServerUtil;
+import org.LexGrid.commonTypes.EntityDescription;
+import org.LexGrid.commonTypes.Property;
+import org.LexGrid.commonTypes.PropertyQualifier;
+import org.LexGrid.concepts.Comment;
+import org.LexGrid.concepts.Definition;
+import org.LexGrid.concepts.Entity;
+import org.LexGrid.concepts.Presentation;
 import org.LexGrid.naming.Mappings;
 import org.LexGrid.naming.SupportedCodingScheme;
 import org.LexGrid.util.PrintUtility;
@@ -45,17 +65,17 @@ import org.LexGrid.valueSets.types.DefinitionOperator;
 import org.lexgrid.valuesets.LexEVSValueSetDefinitionServices;
 import org.lexgrid.valuesets.dto.ResolvedValueSetDefinition;
 
-import org.LexGrid.LexBIG.DataModel.Collections.*;
-import org.LexGrid.LexBIG.DataModel.Core.*;
-import org.LexGrid.LexBIG.Exceptions.*;
+//import org.LexGrid.LexBIG.DataModel.Collections.*;
+//import org.LexGrid.LexBIG.DataModel.Core.*;
+//import org.LexGrid.LexBIG.Exceptions.*;
 import org.LexGrid.LexBIG.History.*;
-import org.LexGrid.LexBIG.LexBIGService.*;
-import org.LexGrid.LexBIG.Utility.*;
-import org.LexGrid.concepts.*;
+//import org.LexGrid.LexBIG.LexBIGService.*;
+//import org.LexGrid.LexBIG.Utility.*;
+//import org.LexGrid.concepts.*;
 import org.LexGrid.LexBIG.DataModel.InterfaceElements.*;
 import org.LexGrid.LexBIG.Utility.Iterators.*;
 import org.LexGrid.codingSchemes.*;
-import org.LexGrid.commonTypes.*;
+//import org.LexGrid.commonTypes.*;
 import org.LexGrid.relations.Relations;
 import org.LexGrid.versions.*;
 import org.LexGrid.naming.*;
@@ -81,7 +101,7 @@ import org.LexGrid.valueSets.ValueSetDefinition;
 import org.LexGrid.commonTypes.Source;
 
 
-import org.apache.log4j.*;
+
 import org.LexGrid.LexBIG.Extensions.Generic.MappingExtension.Mapping;
 import org.LexGrid.LexBIG.Extensions.Generic.MappingExtension.Mapping.SearchContext;
 
@@ -142,7 +162,8 @@ import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
  */
 public class FindPropsAndAssocForCode {
     //static String serviceUrl = "http://ncias-d488-v.nci.nih.gov:29080/lexevsapi60";
-    static String serviceUrl = "https://lexevsapi65.nci.nih.gov";
+
+    static String serviceUrl = "https://lexevsapi65.nci.nih.gov";
     //static String serviceUrl = "https://lexevsapi6.nci.nih.gov/lexevsapi64";
 //    static String serviceUrl = "https://lexevsapi65.nci.nih.gov";
     LexBIGService lbSvc = null;
@@ -150,7 +171,8 @@ public class FindPropsAndAssocForCode {
     public FindPropsAndAssocForCode() {
         //super();
     }
-
+
+
 
     public FindPropsAndAssocForCode(LexBIGService lbSvc) {
         this.lbSvc = lbSvc;
@@ -173,7 +195,8 @@ public class FindPropsAndAssocForCode {
         }
         return null;
     }
-
+
+
 
 
     static void displayAndLogError(String s, Exception e) {
@@ -188,7 +211,8 @@ public class FindPropsAndAssocForCode {
      * @throws LBException
      */
     public void run(String scheme, String version, String code) throws LBException {
-	    //LexBIGService lbSvc = createLexBIGService();
+
+	    //LexBIGService lbSvc = createLexBIGService();
 
 		CodingSchemeVersionOrTag csvt = new CodingSchemeVersionOrTag();
 		if (version != null) csvt.setVersion(version);
@@ -226,7 +250,8 @@ public class FindPropsAndAssocForCode {
         ConceptReferenceList crefs = ConvenienceMethods.createConceptReferenceList(new String[] { code }, scheme);
 
         CodedNodeSet cns = lbSvc.getCodingSchemeConcepts(scheme, csvt);
-
+
+
 if (cns == null) {
 System.out.println("CNS == NULL???");
 return false;
@@ -346,7 +371,8 @@ return false;
 						AssociatedConcept[] acl = assoc.getAssociatedConcepts().getAssociatedConcept();
 						for (int j = 0; j < acl.length; j++) {
 							AssociatedConcept ac = acl[j];
-							String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
+
+							String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
 							EntityDescription ed = ac.getEntityDescription();
 							displayMessage("\t\t" + ac.getConceptCode() + "/"
 									+ (ed == null ? "**No Description**" : ed.getContent()) + " --> (" + rela + ") --> " + code);
@@ -393,7 +419,8 @@ return false;
                     AssociatedConcept[] acl = assoc.getAssociatedConcepts().getAssociatedConcept();
                     for (int j = 0; j < acl.length; j++) {
                         AssociatedConcept ac = acl[j];
-                        String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
+
+                        String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
 
                         EntityDescription ed = ac.getEntityDescription();
                         displayMessage("\t\t" + code + " --> (" + rela + ") --> " + ac.getConceptCode() + "/"
@@ -404,7 +431,8 @@ return false;
         }
     }
 
-
+
+
 
     private String replaceAssociationNameByRela(AssociatedConcept ac, String associationName) {
 		if (ac.getAssociationQualifiers() == null) return associationName;

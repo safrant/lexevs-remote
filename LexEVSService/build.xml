@@ -205,4 +205,38 @@
 			<echo>
 			</echo>
 		</target>
+
+	<target name="local-clean">
+		<delete dir="build/system/build/classes"/>
+	</target>
+
+	<target name="local-init">
+		<property name="build.classes.dir" location="${system.dir}/build/classes"/>
+		<property name="sdk_dir" value="${basedir}/../SDK4_1_1" />
+		<property environment="env"/>
+		<path id="build.path">
+			<fileset dir="system/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<pathelement path="${build.classes.dir}"/>
+		</path>
+		<path id="sdk.path">
+			<fileset dir="${sdk_dir}/system/lib">
+				<include name="*.jar"/>
+			</fileset>
+		</path>
+	</target>
+
+	<target name="local-compile" depends="local-init">
+		<mkdir dir="build/system/build/classes"/>
+
+		<javac srcdir="system/src"
+			   destdir="${system.dir}/build/classes">
+			<classpath>
+				<path refid="build.path" />
+				<path refid="sdk.path" />
+			</classpath>
+		</javac>
+	</target>
+
 	</project>

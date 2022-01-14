@@ -47,7 +47,8 @@ import org.LexGrid.LexBIG.caCore.security.properties.LexEVSProperties;
 import org.LexGrid.LexBIG.caCore.utils.LexEVSCaCoreUtils;
 import org.LexGrid.codingSchemes.CodingScheme;
 import org.LexGrid.util.assertedvaluesets.AssertedValueSetParameters;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.lexevs.locator.LexEvsServiceLocator;
 import org.lexevs.system.utility.MyClassLoader;
 import org.lexgrid.conceptdomain.LexEVSConceptDomainServices;
@@ -65,9 +66,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.util.ClassUtils;
 
 import gov.nih.nci.evs.security.SecurityToken;
-import gov.nih.nci.system.applicationservice.ApplicationException;
-import gov.nih.nci.system.applicationservice.impl.ApplicationServiceImpl;
-import gov.nih.nci.system.util.ClassCache;
+import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationException;
+import org.LexGrid.LexBIG.caCore.applicationservice.impl.ApplicationServiceImpl;
+import org.LexGrid.LexBIG.caCore.applicationservice.util.ClassCache;
 
 /**
  * Main implementation class of LexEVSAPI. This class implements but the DataService
@@ -81,7 +82,7 @@ public class LexEVSApplicationServiceImpl extends ApplicationServiceImpl impleme
 	
 	private RemoteResourceManager remoteResourceManager;
 	
-	private static Logger log = Logger.getLogger(LexEVSApplicationServiceImpl.class.getName());
+	private static Logger log = LogManager.getLogger(LexEVSApplicationServiceImpl.class.getName());
 	protected ApplicationContext appContext;
 
 	private Validator validator;
@@ -173,11 +174,11 @@ public class LexEVSApplicationServiceImpl extends ApplicationServiceImpl impleme
      * Execute securely. (Note: currently the annotations parameter is used only on
      * the client side)
      *
-     * @param object the object
      * @param methodName the method name
      * @param annotations annotations used by this method
      * @param parameterClasses the parameter classes
      * @param args the args
+	 * @param tokens the tokens
      *
      * @return the object
      *

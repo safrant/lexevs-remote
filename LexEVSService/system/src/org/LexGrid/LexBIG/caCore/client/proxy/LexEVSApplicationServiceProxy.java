@@ -16,12 +16,13 @@ import org.LexGrid.LexBIG.Exceptions.LBException;
 import org.LexGrid.LexBIG.Exceptions.LBParameterException;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
 import org.aopalliance.intercept.MethodInvocation;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.aop.framework.Advised;
 
 import gov.nih.nci.evs.security.SecurityToken;
-import gov.nih.nci.system.applicationservice.ApplicationService;
-import gov.nih.nci.system.client.proxy.ApplicationServiceProxy;
+import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ApplicationServiceProxy;
 import net.sf.cglib.proxy.Enhancer;
 
 /**
@@ -35,7 +36,7 @@ import net.sf.cglib.proxy.Enhancer;
  * 
  */
 public class LexEVSApplicationServiceProxy extends ApplicationServiceProxy {
-    private static Logger log = Logger.getLogger(LexEVSApplicationServiceProxy.class.getName());
+    private static Logger log = LogManager.getLogger(LexEVSApplicationServiceProxy.class.getName());
 
     private LexEVSApplicationService eas;
 

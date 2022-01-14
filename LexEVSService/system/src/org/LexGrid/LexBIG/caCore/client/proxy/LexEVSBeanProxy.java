@@ -8,10 +8,10 @@
 */
 package org.LexGrid.LexBIG.caCore.client.proxy;
 
-import gov.nih.nci.system.applicationservice.ApplicationService;
-import gov.nih.nci.system.client.proxy.BeanProxy;
-import gov.nih.nci.system.client.proxy.ProxyHelper;
 
+
+import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ProxyHelper;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**
@@ -19,14 +19,14 @@ import org.aopalliance.intercept.MethodInvocation;
  * 
  * @author <a href="mailto:kevin.peterson@mayo.edu">Kevin Peterson</a>
  */
-public class LexEVSBeanProxy extends BeanProxy
+public class LexEVSBeanProxy
 {
 	ApplicationService as;
 	ProxyHelper proxyHelper;
 	
 	public LexEVSBeanProxy(ApplicationService as, ProxyHelper proxyHelper)
 	{
-		super(as, proxyHelper);
+
 		this.as = as;
 		this.proxyHelper = proxyHelper;
 	}
@@ -36,11 +36,14 @@ public class LexEVSBeanProxy extends BeanProxy
 	 * 
 	 * This changed from 4.0 to 4.1 in the SDK. We need the old implementation.
 	 */	
-	@Override
+
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 	    if(!proxyHelper.isInitialized(invocation))
 	    	return proxyHelper.lazyLoad(as,invocation);
 	    else
 	    	return invocation.proceed();
 	}
+
+
+
 }

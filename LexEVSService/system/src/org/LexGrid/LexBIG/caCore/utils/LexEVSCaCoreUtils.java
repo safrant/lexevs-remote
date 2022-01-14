@@ -8,9 +8,6 @@
 */
 package org.LexGrid.LexBIG.caCore.utils;
 
-import gov.nih.nci.system.applicationservice.ApplicationService;
-import gov.nih.nci.system.client.proxy.ProxyHelper;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,6 +15,9 @@ import java.util.Date;
 import java.util.Map;
 
 import org.LexGrid.LexBIG.Impl.pagedgraph.paging.callback.CycleDetectingCallback;
+import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.BeanProxy;
+import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ProxyHelper;
 import org.LexGrid.LexBIG.caCore.client.proxy.LexEVSBeanProxy;
 import org.springframework.aop.framework.ProxyFactory;
 import org.springframework.util.ClassUtils;
@@ -119,7 +119,7 @@ public class LexEVSCaCoreUtils {
     		ProxyHelper proxyHelper){
     	 ProxyFactory pf = new ProxyFactory(objectToProxy);
          pf.setProxyTargetClass(true);
-         pf.addAdvice(new LexEVSBeanProxy(advice, proxyHelper));
+         pf.addAdvice(new BeanProxy(advice, proxyHelper));
          pf.setExposeProxy(true);
          return pf.getProxy();
     }

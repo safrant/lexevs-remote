@@ -8,6 +8,7 @@
 */
 package org.LexGrid.LexBIG.testUtil;
 
+import org.LexGrid.LexBIG.caCore.applicationservice.client.ApplicationServiceProvider;
 import org.LexGrid.LexBIG.caCore.applicationservice.impl.LexEVSApplicationServiceImpl;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSDistributed;
@@ -15,8 +16,8 @@ import org.LexGrid.LexBIG.caCore.interfaces.LexEVSService;
 import org.LexGrid.util.assertedvaluesets.AssertedValueSetParameters;
 
 import gov.nih.nci.evs.security.SecurityToken;
-import gov.nih.nci.system.applicationservice.ApplicationService;
-import gov.nih.nci.system.client.ApplicationServiceProvider;
+
+
 
 public class LexEVSServiceHolder {
     private static LexEVSServiceHolder sh_;
