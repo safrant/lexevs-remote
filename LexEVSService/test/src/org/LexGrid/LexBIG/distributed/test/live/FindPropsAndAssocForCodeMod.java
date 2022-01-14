@@ -20,45 +20,32 @@ package org.LexGrid.LexBIG.distributed.test.live;
  */
 //package org.LexGrid.LexBIG.example;
 
-import java.io.*;
+import java.io.PrintWriter;
 import java.util.Enumeration;
-
-import org.LexGrid.commonTypes.PropertyQualifier;
-import org.LexGrid.commonTypes.Source;
-
-
 import org.LexGrid.LexBIG.DataModel.Collections.AssociationList;
 import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
 import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
 import org.LexGrid.LexBIG.DataModel.Core.AssociatedConcept;
 import org.LexGrid.LexBIG.DataModel.Core.Association;
-import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeSummary;
 import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
+import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
 import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
 import org.LexGrid.LexBIG.Exceptions.LBException;
-import org.LexGrid.LexBIG.Impl.LexBIGServiceImpl;
-import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
+import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
 import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.ActiveOption;
+import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
 import org.LexGrid.LexBIG.Utility.Constructors;
 import org.LexGrid.LexBIG.Utility.ConvenienceMethods;
+import org.LexGrid.LexBIG.distributed.test.live.testutil.RemoteServerUtil;
 import org.LexGrid.commonTypes.EntityDescription;
 import org.LexGrid.commonTypes.Property;
-import org.LexGrid.concepts.Entity;
-import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
-
+import org.LexGrid.commonTypes.PropertyQualifier;
+import org.LexGrid.commonTypes.Source;
 import org.LexGrid.concepts.Comment;
 import org.LexGrid.concepts.Definition;
+import org.LexGrid.concepts.Entity;
 import org.LexGrid.concepts.Presentation;
-
-import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
-
-import gov.nih.nci.system.applicationservice.ApplicationException;
-import gov.nih.nci.system.client.ApplicationServiceProvider;
-import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
-import org.LexGrid.LexBIG.distributed.test.live.testutil.RemoteServerUtil;
-import org.LexGrid.LexBIG.gui.codeSet.CodedNodeGraph;
-import org.LexGrid.LexBIG.Impl.LexBIGServiceImpl;
 
 /**
  * Example showing how to find concept properties and associations based on a code.
@@ -106,7 +93,8 @@ public class FindPropsAndAssocForCodeMod {
 		printFrom(pw, code, lbSvc, scheme, csvt);
 		printTo(pw, code, lbSvc, scheme, csvt);
     }
-
+
+
 
     public void run(PrintWriter pw, String scheme, String version, String code, String entityType) throws LBException {
 		CodingSchemeVersionOrTag csvt = new CodingSchemeVersionOrTag();
@@ -117,7 +105,8 @@ public class FindPropsAndAssocForCodeMod {
     }
 
 
-
+
+
     void displayMessage(String s) {
 		displayMessage(null, s);
 	}
@@ -166,8 +155,10 @@ public class FindPropsAndAssocForCodeMod {
     public boolean printProps(PrintWriter pw, String code, LexBIGService lbSvc, String scheme, CodingSchemeVersionOrTag csvt, String entityType)
             throws LBException {
         ConceptReferenceList crefs = ConvenienceMethods.createConceptReferenceList(new String[] { code }, scheme);
-        //CodedNodeSet cns = lbSvc.getCodingSchemeConcepts(scheme, csvt);
-        CodedNodeSet cns = getCodedNodeSet(scheme, csvt, entityType);
+
+        //CodedNodeSet cns = lbSvc.getCodingSchemeConcepts(scheme, csvt);
+
+        CodedNodeSet cns = getCodedNodeSet(scheme, csvt, entityType);
 		if (cns == null) {
 			System.out.println("CNS == NULL???");
 			return false;
@@ -337,7 +328,8 @@ public class FindPropsAndAssocForCodeMod {
             while (refEnum.hasMoreElements()) {
                 ResolvedConceptReference ref = refEnum.nextElement();
                 AssociationList targetof = ref.getTargetOf();
-
+
+
                 if (targetof != null) {
 					if (targetof != null) {
 						Association[] associations = targetof.getAssociation();
@@ -349,7 +341,8 @@ public class FindPropsAndAssocForCodeMod {
 								AssociatedConcept[] acl = assoc.getAssociatedConcepts().getAssociatedConcept();
 								for (int j = 0; j < acl.length; j++) {
 									AssociatedConcept ac = acl[j];
-									String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
+
+									String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
 									EntityDescription ed = ac.getEntityDescription();
 									displayMessage(pw, "\t\t" + ac.getConceptCode() + "/"
 											+ (ed == null ? "**No Description**" : ed.getContent()) + " --> (" + rela + ") --> " + code);
@@ -408,7 +401,8 @@ public class FindPropsAndAssocForCodeMod {
 							AssociatedConcept[] acl = assoc.getAssociatedConcepts().getAssociatedConcept();
 							for (int j = 0; j < acl.length; j++) {
 								AssociatedConcept ac = acl[j];
-								String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
+
+								String rela = replaceAssociationNameByRela(ac, assoc.getAssociationName());
 
 								EntityDescription ed = ac.getEntityDescription();
 								displayMessage(pw, "\t\t" + code + " --> (" + rela + ") --> " + ac.getConceptCode() + "/"
@@ -428,7 +422,8 @@ public class FindPropsAndAssocForCodeMod {
         }
     }
 
-
+
+
     private String replaceAssociationNameByRela(AssociatedConcept ac, String associationName) {
 		return associationName;
 	}

@@ -27,8 +27,7 @@ import org.LexGrid.LexBIG.caCore.interfaces.LexEVSDistributed;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSService;
 import org.LexGrid.codingSchemes.CodingScheme;
 
-import gov.nih.nci.system.applicationservice.ApplicationException;
-import gov.nih.nci.system.client.ApplicationServiceProvider;
+
 
 
 

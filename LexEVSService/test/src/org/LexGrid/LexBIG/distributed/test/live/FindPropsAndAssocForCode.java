@@ -120,42 +120,6 @@ import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.ActiveOption;
 
 
 
-/*
-import java.util.Enumeration;
-
-import org.LexGrid.commonTypes.PropertyQualifier;
-import org.LexGrid.commonTypes.Source;
-
-
-import org.LexGrid.LexBIG.DataModel.Collections.AssociationList;
-import org.LexGrid.LexBIG.DataModel.Collections.ConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Collections.LocalNameList;
-import org.LexGrid.LexBIG.DataModel.Collections.ResolvedConceptReferenceList;
-import org.LexGrid.LexBIG.DataModel.Core.AssociatedConcept;
-import org.LexGrid.LexBIG.DataModel.Core.Association;
-import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeSummary;
-import org.LexGrid.LexBIG.DataModel.Core.CodingSchemeVersionOrTag;
-import org.LexGrid.LexBIG.DataModel.Core.ResolvedConceptReference;
-import org.LexGrid.LexBIG.Exceptions.LBException;
-import org.LexGrid.LexBIG.Impl.LexBIGServiceImpl;
-import org.LexGrid.LexBIG.LexBIGService.LexBIGService;
-import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet.ActiveOption;
-import org.LexGrid.LexBIG.Utility.ConvenienceMethods;
-import org.LexGrid.commonTypes.EntityDescription;
-import org.LexGrid.commonTypes.Property;
-import org.LexGrid.concepts.Entity;
-import org.LexGrid.LexBIG.LexBIGService.CodedNodeSet;
-
-import org.LexGrid.concepts.Comment;
-import org.LexGrid.concepts.Definition;
-import org.LexGrid.concepts.Presentation;
-
-import org.LexGrid.LexBIG.DataModel.Core.NameAndValue;
-
-import gov.nih.nci.system.applicationservice.ApplicationException;
-import gov.nih.nci.system.client.ApplicationServiceProvider;
-import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
-*/
 
 /**
  * Example showing how to find concept properties and associations based on a code.
