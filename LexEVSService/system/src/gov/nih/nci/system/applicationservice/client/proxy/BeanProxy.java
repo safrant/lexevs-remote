@@ -1,13 +1,14 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.client.proxy;
+package gov.nih.nci.system.applicationservice.client.proxy;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+
+import gov.nih.nci.system.applicationservice.ApplicationService;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 public class BeanProxy implements MethodInterceptor
 {
 	ApplicationService as;
-	org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ProxyHelper proxyHelper;
+	gov.nih.nci.system.applicationservice.client.proxy.ProxyHelper proxyHelper;
 	
 	public BeanProxy(ApplicationService as, ProxyHelper proxyHelper)
 	{

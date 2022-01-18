@@ -9,11 +9,10 @@
 package org.LexGrid.LexBIG.distributed.test.dataAccess;
 
 import gov.nih.nci.evs.security.SecurityToken;
-
+import gov.nih.nci.system.applicationservice.client.ApplicationServiceProvider;
 
 import org.LexGrid.LexBIG.Extensions.Generic.LexBIGServiceConvenienceMethods;
 import org.LexGrid.LexBIG.Utility.Constructors;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.ApplicationServiceProvider;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSDistributed;
 import org.LexGrid.LexBIG.testUtil.ServiceTestCase;
 

@@ -8,6 +8,9 @@
 */
 package org.LexGrid.LexBIG.caCore.client.proxy;
 
+import gov.nih.nci.system.applicationservice.ApplicationService;
+import gov.nih.nci.system.applicationservice.client.proxy.ApplicationServiceProxy;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -21,8 +24,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.aop.framework.Advised;
 
 import gov.nih.nci.evs.security.SecurityToken;
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ApplicationServiceProxy;
 import net.sf.cglib.proxy.Enhancer;
 
 /**

@@ -1,7 +1,9 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.client;
+package gov.nih.nci.system.applicationservice.client;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ApplicationServiceProxy;
+
+import gov.nih.nci.system.applicationservice.ApplicationService;
+
+import gov.nih.nci.system.client.proxy.ApplicationServiceProxy;
 import java.io.ByteArrayInputStream;
 import java.util.Map;
 import org.aopalliance.aop.Advice;

@@ -1,4 +1,4 @@
-package org.LexGrid.LexBIG.caCore.applicationservice;
+package gov.nih.nci.system.applicationservice;
 
 import org.LexGrid.LexBIG.caCore.applicationservice.query.hibernate.HQLCriteria;
 import java.util.List;

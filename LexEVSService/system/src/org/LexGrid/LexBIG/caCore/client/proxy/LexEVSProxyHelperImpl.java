@@ -9,7 +9,11 @@
 package org.LexGrid.LexBIG.caCore.client.proxy;
 
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+
+import gov.nih.nci.system.applicationservice.ApplicationService;
+import gov.nih.nci.system.applicationservice.client.proxy.BeanProxy;
+import gov.nih.nci.system.applicationservice.client.proxy.ProxyHelperImpl;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -17,9 +21,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+
 import org.LexGrid.LexBIG.caCore.applicationservice.RemoteExecutionResults;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.BeanProxy;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ProxyHelperImpl;
 import org.LexGrid.LexBIG.caCore.applicationservice.resource.RemoteShell;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
 import org.LexGrid.LexBIG.caCore.utils.LexEVSCaCoreUtils;

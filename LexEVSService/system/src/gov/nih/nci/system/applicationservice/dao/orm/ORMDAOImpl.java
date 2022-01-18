@@ -1,12 +1,6 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao.orm;
+package gov.nih.nci.system.applicationservice.dao.orm;
 
 import org.LexGrid.LexBIG.caCore.applicationservice.helper.SecurityInitializationHelper;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.DAO;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.DAOException;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.Request;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.Response;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.orm.translator.NestedCriteria2HQL;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.orm.translator.Path2NestedCriteria;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.hibernate.HQLCriteria;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.nestedcriteria.NestedCriteria;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.nestedcriteria.NestedCriteriaPath;
@@ -29,6 +23,13 @@ import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
+import gov.nih.nci.system.applicationservice.dao.DAO;
+import gov.nih.nci.system.applicationservice.dao.DAOException;
+import gov.nih.nci.system.applicationservice.dao.Request;
+import gov.nih.nci.system.applicationservice.dao.Response;
+import gov.nih.nci.system.applicationservice.dao.orm.translator.NestedCriteria2HQL;
+import gov.nih.nci.system.applicationservice.dao.orm.translator.Path2NestedCriteria;
 
 //import gov.nih.nci.system.dao.orm.translator.CQL2HQL;
 //import gov.nih.nci.system.query.cql.CQLQuery;

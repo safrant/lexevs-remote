@@ -1,4 +1,4 @@
-package org.LexGrid.LexBIG.caCore.applicationservice;
+package gov.nih.nci.system.applicationservice;
 
 /**
  * This exception is thrown by all the methods of the {@link ApplicationService}

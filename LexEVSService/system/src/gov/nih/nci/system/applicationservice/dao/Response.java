@@ -1,4 +1,4 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao;
+package gov.nih.nci.system.applicationservice.dao;
 
 /**
  * Provides components to hold the resultset of a query request  

@@ -1,6 +1,7 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.client.proxy;
+package gov.nih.nci.system.applicationservice.client.proxy;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+
+import gov.nih.nci.system.applicationservice.ApplicationService;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -27,12 +28,12 @@ public class ProxyHelperImpl implements ProxyHelper
 {
 	private static Logger log = LogManager.getLogger(ProxyHelperImpl.class.getName());
 	
-	public Object convertToProxy(ApplicationService as, Object obj) 
+	public Object convertToProxy(ApplicationService as, Object obj)
 	{
 		if(obj == null) return null;
 		
-		if(obj instanceof org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy)
-			return convertListProxyToProxy(as,(org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy)obj);
+		if(obj instanceof gov.nih.nci.system.applicationservice.client.proxy.ListProxy)
+			return convertListProxyToProxy(as,(gov.nih.nci.system.applicationservice.client.proxy.ListProxy)obj);
 		if(obj instanceof Collection)
 			return convertCollectionToProxy(as,(Collection)obj);
 		else if(obj instanceof Object[])
@@ -77,8 +78,8 @@ public class ProxyHelperImpl implements ProxyHelper
 				if (!(childObject == null || isPrimitiveObject(childObject) || childObject instanceof Class)
 						&& Hibernate.isInitialized(childObject)) {
 					
-					if (childObject instanceof org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy) {
-						org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy objectProxy = (org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy) childObject;
+					if (childObject instanceof gov.nih.nci.system.applicationservice.client.proxy.ListProxy) {
+						gov.nih.nci.system.applicationservice.client.proxy.ListProxy objectProxy = (gov.nih.nci.system.applicationservice.client.proxy.ListProxy) childObject;
 						int associationSize = objectProxy.size();
 						if (associationSize != objectProxy.getListChunk().size()) {
 							String associationName=null;
@@ -127,7 +128,7 @@ public class ProxyHelperImpl implements ProxyHelper
 		return plainObject;
 	}
 	
-	protected Object convertListProxyToProxy(ApplicationService as, org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy proxy) {
+	protected Object convertListProxyToProxy(ApplicationService as, gov.nih.nci.system.applicationservice.client.proxy.ListProxy proxy) {
 		proxy.setAppService(as);
 		List chunk = proxy.getListChunk();
 		
@@ -196,7 +197,7 @@ public class ProxyHelperImpl implements ProxyHelper
     		Object value = obj;
 
 
-    		if(obj instanceof org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy)
+    		if(obj instanceof gov.nih.nci.system.applicationservice.client.proxy.ListProxy)
     			((ListProxy)obj).setAppService(as);
     			
     		if(!field.getType().getName().equalsIgnoreCase("java.util.Collection"))

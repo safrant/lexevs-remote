@@ -1,15 +1,17 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.impl;
+package gov.nih.nci.system.applicationservice.impl;
 
 //import gov.nih.nci.cagrid.sdkquery4.processor.ParameterizedHqlQuery;
 
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationException;
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.DAO;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.Request;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.Response;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.orm.ORMDAOImpl;
+import gov.nih.nci.system.applicationservice.ApplicationException;
+import gov.nih.nci.system.applicationservice.ApplicationService;
+import gov.nih.nci.system.applicationservice.client.proxy.ListProxy;
+import gov.nih.nci.system.applicationservice.dao.DAO;
+import gov.nih.nci.system.applicationservice.dao.Request;
+import gov.nih.nci.system.applicationservice.dao.Response;
+import gov.nih.nci.system.applicationservice.dao.orm.ORMDAOImpl;
+import gov.nih.nci.system.query.cql.CQLQuery;
+
 import org.LexGrid.LexBIG.caCore.applicationservice.query.hibernate.HQLCriteria;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.nestedcriteria.NestedCriteriaPath;
 import org.LexGrid.LexBIG.caCore.applicationservice.util.ClassCache;
@@ -75,15 +77,14 @@ public class ApplicationServiceImpl implements ApplicationService {
 		return privateQuery(detachedCriteria, targetClassName);
 	}
 
+
 	/**
-	 * @see ApplicationService#query(HQLCriteria, String)
 	 */
 	public <E> List<E> query(HQLCriteria hqlCriteria, String targetClassName) throws ApplicationException {
 		return query(hqlCriteria);
 	}
 
 	/**
-	 * @see ApplicationService#query(HQLCriteria)
 	 */
 	public <E> List<E> query(HQLCriteria hqlCriteria) throws ApplicationException {
 		String hql = hqlCriteria.getHqlString();
@@ -209,7 +210,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 			else
 				hql = "select dest from "+assocType+" as dest,"+source.getClass().getName()+" as src where src."+associationName+".id=dest.id and src=?";
 		}
-		catch (QueryException e) {
+		catch (QueryException | gov.nih.nci.system.applicationservice.dao.QueryException e) {
 			e.printStackTrace();
 		}
 
@@ -309,8 +310,10 @@ public class ApplicationServiceImpl implements ApplicationService {
 		return classCache;
 	}
 
-//	public <E> List<E> query(gov.nih.nci.cagrid.cqlquery.CQLQuery cqlQuery) throws ApplicationException
-//	{
+	public <E> List<E> query(gov.nih.nci.cagrid.cqlquery.CQLQuery cqlQuery) throws ApplicationException
+	{
+
+		//cqlqueries no longer supported
 //		try
 //		{
 //			CQL2ParameterizedHQL converter = new CQL2ParameterizedHQL(classCache,new RoleNameResolver(classCache),false);
@@ -321,7 +324,19 @@ public class ApplicationServiceImpl implements ApplicationService {
 //		catch (Exception e)
 //		{
 //			log.error(e.getMessage());
-//			throw new ApplicationException(e.getMessage());
+			throw new ApplicationException("CQL Queries no longer supported");
 //		}
-//	}
+	}
+
+
+	public <E> List<E> query(gov.nih.nci.system.query.hibernate.HQLCriteria hqlCriteria, String targetClassName) throws ApplicationException {
+		return null;
+	}
+
+
+	public <E> List<E> query(gov.nih.nci.system.query.hibernate.HQLCriteria hqlCriteria) throws ApplicationException {
+		return null;
+	}
+
+
 }

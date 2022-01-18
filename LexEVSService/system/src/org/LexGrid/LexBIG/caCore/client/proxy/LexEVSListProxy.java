@@ -8,15 +8,17 @@
 */
 package org.LexGrid.LexBIG.caCore.client.proxy;
 
+import gov.nih.nci.system.applicationservice.ApplicationService;
+import gov.nih.nci.system.applicationservice.client.proxy.ListProxy;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.transaction.NotSupportedException;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+
 import org.LexGrid.LexBIG.caCore.applicationservice.QueryOptions;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ListProxy;
 import org.LexGrid.LexBIG.caCore.interfaces.LexEVSApplicationService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

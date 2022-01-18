@@ -8,13 +8,14 @@
 */
 package org.LexGrid.LexBIG.caCore.interfaces;
 
+import gov.nih.nci.system.applicationservice.ApplicationService;
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 
 import org.LexGrid.LexBIG.caCore.security.interfaces.TokenSecurableApplicationService;
 import org.LexGrid.util.assertedvaluesets.AssertedValueSetParameters;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+
 
 public interface LexEVSApplicationService extends LexEVSService, ApplicationService, TokenSecurableApplicationService {
 

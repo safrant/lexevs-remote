@@ -1,4 +1,4 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao;
+package gov.nih.nci.system.applicationservice.dao;
 
 import org.LexGrid.LexBIG.caCore.applicationservice.util.ClassCache;
 import java.util.Hashtable;

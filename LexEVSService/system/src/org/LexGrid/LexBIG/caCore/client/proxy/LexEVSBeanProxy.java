@@ -10,8 +10,9 @@ package org.LexGrid.LexBIG.caCore.client.proxy;
 
 
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
-import org.LexGrid.LexBIG.caCore.applicationservice.client.proxy.ProxyHelper;
+
+import gov.nih.nci.system.applicationservice.ApplicationService;
+import gov.nih.nci.system.client.proxy.ProxyHelper;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**

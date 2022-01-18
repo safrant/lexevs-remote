@@ -66,8 +66,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.util.ClassUtils;
 
 import gov.nih.nci.evs.security.SecurityToken;
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationException;
-import org.LexGrid.LexBIG.caCore.applicationservice.impl.ApplicationServiceImpl;
+import gov.nih.nci.system.applicationservice.ApplicationException;
+import gov.nih.nci.system.applicationservice.impl.ApplicationServiceImpl;
+
 import org.LexGrid.LexBIG.caCore.applicationservice.util.ClassCache;
 
 /**

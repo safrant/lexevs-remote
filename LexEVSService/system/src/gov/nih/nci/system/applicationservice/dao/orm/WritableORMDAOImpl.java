@@ -1,9 +1,5 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao.orm;
+package gov.nih.nci.system.applicationservice.dao.orm;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.DAOException;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.Request;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.Response;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.WritableDAO;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.SDKQuery;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.SDKQueryResult;
 import java.sql.SQLException;
@@ -12,6 +8,11 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;
+
+import gov.nih.nci.system.applicationservice.dao.DAOException;
+import gov.nih.nci.system.applicationservice.dao.Request;
+import gov.nih.nci.system.applicationservice.dao.Response;
+import gov.nih.nci.system.applicationservice.dao.WritableDAO;
 
 public class WritableORMDAOImpl extends ORMDAOImpl implements WritableDAO
 {

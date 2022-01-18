@@ -1,6 +1,6 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao;
+package gov.nih.nci.system.applicationservice.dao;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationException;
+import gov.nih.nci.system.applicationservice.ApplicationException;
 
 /**
  * An exception class for DAO related functions

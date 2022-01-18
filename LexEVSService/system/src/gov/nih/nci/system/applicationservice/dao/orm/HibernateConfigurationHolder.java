@@ -1,4 +1,4 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao.orm;
+package gov.nih.nci.system.applicationservice.dao.orm;
 
 import org.hibernate.cfg.Configuration;
 

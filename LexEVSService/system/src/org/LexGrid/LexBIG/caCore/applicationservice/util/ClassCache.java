@@ -1,8 +1,5 @@
 package org.LexGrid.LexBIG.caCore.applicationservice.util;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.DAO;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.DAOException;
-import org.LexGrid.LexBIG.caCore.applicationservice.dao.QueryException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -16,6 +13,10 @@ import java.util.Map;
 import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import gov.nih.nci.system.applicationservice.dao.DAO;
+import gov.nih.nci.system.applicationservice.dao.DAOException;
+import gov.nih.nci.system.applicationservice.dao.QueryException;
 
 /** 
  *  ClassCache

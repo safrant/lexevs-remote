@@ -1,6 +1,7 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.client.proxy;
+package gov.nih.nci.system.applicationservice.client.proxy;
 
-import org.LexGrid.LexBIG.caCore.applicationservice.ApplicationService;
+
+import gov.nih.nci.system.applicationservice.ApplicationService;
 import org.aopalliance.intercept.MethodInvocation;
 
 public interface ProxyHelper {

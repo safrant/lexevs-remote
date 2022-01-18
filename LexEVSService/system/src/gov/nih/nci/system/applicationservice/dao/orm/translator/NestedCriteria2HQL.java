@@ -1,4 +1,4 @@
-package org.LexGrid.LexBIG.caCore.applicationservice.dao.orm.translator;
+package gov.nih.nci.system.applicationservice.dao.orm.translator;
 
 import org.LexGrid.LexBIG.caCore.applicationservice.query.hibernate.HQLCriteria;
 import org.LexGrid.LexBIG.caCore.applicationservice.query.nestedcriteria.NestedCriteria;
