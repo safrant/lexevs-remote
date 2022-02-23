@@ -79,7 +79,7 @@ public void testGetMinimalResolvedValueSetSchemes() throws URISyntaxException, L
 	List<CodingScheme> list = service.getMinimalResolvedValueSetSchemes();
 	assertTrue(list.size() > 0 );
 	assertTrue(list.stream().anyMatch(x ->x.getFormalName().equals("CDISC SDTM Reason for Treatment Interruption Terminology")));
-	assertTrue(list.stream().anyMatch(x ->x.getFormalName().equals("CDISC SDTM General Observation Class Terminology")));
+	assertTrue(list.stream().anyMatch(x ->x.getFormalName().equals("CDISC Define-XML General Observation Class Terminology")));
 	assertTrue(list.stream().anyMatch(x ->x.getFormalName().equals("CDISC SDTM Malaria Findings About Test Name Terminology")));
 }
 

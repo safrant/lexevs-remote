@@ -28,7 +28,7 @@ public class GForge27457 extends ServiceTestCase
 		LexBIGService lbsi = LexEVSServiceHolder.instance().getLexEVSAppService();
     	CodedNodeSet cns = lbsi.getCodingSchemeConcepts(THES_SCHEME, null);
     	cns = cns.restrictToProperties(
-    			Constructors.createLocalNameList("Legacy_Concept_Name"), null, null, null, null);
+    			Constructors.createLocalNameList("Micronutrient"), null, null, null, null);
     	ResolvedConceptReferencesIterator itr = cns.resolve(null, null, null, null, false);
     	
 		assertTrue(itr.numberRemaining() > 0);
