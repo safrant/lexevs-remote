@@ -69,7 +69,7 @@ public void testIntersection() throws LBException
         Association[] assn = rcr[0].getSourceOf().getAssociation();
         assertTrue("4",assn.length == 1);
         AssociatedConcept[] ac = assn[0].getAssociatedConcepts().getAssociatedConcept();
-        assertTrue("5",ac.length == 1);
+        assertTrue("5",ac.length == 2);
         assertTrue("6",ac[0].getConceptCode().equals("C25447"));
         //no more below it 
         assertTrue("7",ac[0].getSourceOf() == null);
