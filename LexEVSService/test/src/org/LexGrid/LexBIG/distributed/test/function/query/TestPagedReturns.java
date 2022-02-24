@@ -79,7 +79,7 @@ public class TestPagedReturns extends ServiceTestCase
         // invalid property - quicker - doesn't resolve any properties this way.
         ResolvedConceptReferencesIterator iter = cns.resolve(null, Constructors.createLocalNameList("invalidProperty"), null);
 
-        // return 100 at a time - should be a total of 210
+        // return 100 at a time - should be a total of ~2400
         int start = 0;
         int increment = 100;
         int count = 0;
@@ -99,7 +99,7 @@ public class TestPagedReturns extends ServiceTestCase
         try
         {
             //going too far with a start point throws an exception
-            iter.get(2000, 2100).getResolvedConceptReference();
+            iter.get(5000, 5100).getResolvedConceptReference();
             fail("Did not throw LBParameter Exception");
         }
         catch (LBParameterException e) {

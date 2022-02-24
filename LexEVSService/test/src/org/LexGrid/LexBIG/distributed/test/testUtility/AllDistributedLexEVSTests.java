@@ -14,7 +14,6 @@ import junit.framework.TestSuite;
 import org.LexGrid.LexBIG.distributed.test.bugs.GForge17233;
 import org.LexGrid.LexBIG.distributed.test.bugs.GForge19716;
 import org.LexGrid.LexBIG.distributed.test.bugs.GForge27457;
-import org.LexGrid.LexBIG.distributed.test.bugs.GForge29695;
 import org.LexGrid.LexBIG.distributed.test.bugs.TestBugFixes;
 import org.LexGrid.LexBIG.distributed.test.dataAccess.ConvenienceMethodsSecurityTest;
 import org.LexGrid.LexBIG.distributed.test.dataAccess.DistributedSecurityTest;
@@ -88,7 +87,6 @@ public class AllDistributedLexEVSTests
 		bugTests.addTestSuite(TestBugFixes.class);
 		bugTests.addTestSuite(GForge19716.class);
 		bugTests.addTestSuite(GForge17233.class);
-		bugTests.addTestSuite(GForge29695.class);
 		bugTests.addTestSuite(GForge27457.class);
 		mainSuite.addTest(bugTests);
 

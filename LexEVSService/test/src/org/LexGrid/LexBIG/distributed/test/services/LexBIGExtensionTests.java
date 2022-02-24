@@ -58,14 +58,24 @@ public class LexBIGExtensionTests extends ServiceTestCase {
 	@Test
 	public void testTreeServiceDistributed() throws Exception{
 		 LexEvsTree tree = null;
-	        CodingSchemeVersionOrTag csvt = new CodingSchemeVersionOrTag();
-	        csvt.setVersion("2011-12-08");
-	         tree = treeExtension.getTree("Nanoparticle Ontology", csvt, "NPO_1607", "npo", "is_a");
-	            
-	            LexEvsTreeNode focusNode = tree.getCurrentFocus();
-	            focusNode.setNamespace("npo");
-	            List<LexEvsTreeNode> nodeList = treeExtension.getEvsTreeConverter().buildEvsTreePathFromRootTree(focusNode);
-	            assertTrue(nodeList.size() > 0);
+//	        CodingSchemeVersionOrTag csvt = new CodingSchemeVersionOrTag();
+//	        csvt.setVersion("2011-12-08_Test");
+//	         tree = treeExtension.getTree("Nanoparticle Ontology", csvt, "NPO_1607", "npo", "is_a");
+//
+//	            LexEvsTreeNode focusNode = tree.getCurrentFocus();
+//	            focusNode.setNamespace("npo");
+//	            List<LexEvsTreeNode> nodeList = treeExtension.getEvsTreeConverter().buildEvsTreePathFromRootTree(focusNode);
+//	            assertTrue("1",nodeList.size() > 0);
+
+
+		CodingSchemeVersionOrTag csvt2 = new CodingSchemeVersionOrTag();
+		csvt2.setTag("PRODUCTION");
+		tree = treeExtension.getTree("obib", csvt2, "IAO_0000578", "obo", "is_a");
+
+		LexEvsTreeNode focusNode2 = tree.getCurrentFocus();
+		focusNode2.setNamespace("obib");
+		List<LexEvsTreeNode> nodeList2 = treeExtension.getEvsTreeConverter().buildEvsTreePathFromRootTree(focusNode2);
+		assertTrue("2",nodeList2.size() > 0);
 	}
 }
 	

@@ -48,7 +48,7 @@ public class TestAttributeValueMatch extends ServiceTestCase
         CodedNodeSet cns = LexEVSServiceHolder.instance().getLexEVSAppService()
                 .getCodingSchemeConcepts(THES_SCHEME, null);
         CodedNodeSet matches = cns.restrictToMatchingProperties(null, new PropertyType[] {prop}, value, "contains", null);
-        int count = matches.resolveToList(null, null, null, 0).getResolvedConceptReferenceCount();
+        int count = matches.resolveToList(null, null, null, 500).getResolvedConceptReferenceCount();
         return (count > 0);
     }
 
